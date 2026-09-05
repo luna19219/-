@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>HoloElements — 손동작 원소 홀로그램</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main id="app">
+    <canvas id="scene"></canvas>
+
+    <section class="hud">
+      <div class="brand">HOLO ELEMENTS</div>
+
+      <div class="element-card">
+        <div class="symbol" id="symbol">H</div>
+        <div>
+          <div class="element-name" id="elementName">수소</div>
+          <div class="element-meta" id="elementMeta">원자번호 1 · p 1 · e 1 · n≈0</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button id="prevBtn" aria-label="이전 원소">◀</button>
+        <select id="elementSelect" aria-label="원소 선택"></select>
+        <button id="nextBtn" aria-label="다음 원소">▶</button>
+      </div>
+
+      <div class="toolbar">
+        <button id="cameraBtn" class="primary">손 인식 시작</button>
+        <button id="holoBtn">홀로그램 모드: OFF</button>
+        <button id="resetBtn">초기화</button>
+      </div>
+
+      <div class="status" id="status">카메라를 켜면 손동작으로 조작할 수 있습니다.</div>
+    </section>
+
+    <aside class="gesture-help">
+      <div><b>집기</b> 엄지+검지 → 이동</div>
+      <div><b>손바닥</b> 움직이기 → 회전</div>
+      <div><b>두 손</b> 간격 → 확대/축소</div>
+      <div><b>스와이프</b> ← / → → 원소 변경</div>
+    </aside>
+
+    <section class="camera-panel" id="cameraPanel">
+      <video id="webcam" autoplay playsinline muted></video>
+      <canvas id="handOverlay"></canvas>
+      <div class="camera-label">HAND TRACKING</div>
+    </section>
+
+    <div id="holoGuide" class="holo-guide" hidden>
+      <div class="center-hole"></div>
+    </div>
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
